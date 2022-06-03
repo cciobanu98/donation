@@ -3,12 +3,12 @@ entries:
   donation:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-03T09:14:36.127699406Z"
+    created: "2022-06-03T12:50:34.902552368Z"
     description: A Helm chart for Kubernetes
-    digest: d9bad067898247e806c085b4cf2ca8a0ad9a9548afdca414a0000f0200d9251b
+    digest: 8fb7bca85eb93201b9400427e0470898c4b597e95f424a4d260d5bf1fb6b9e28
     name: donation
     type: application
     urls:
     - https://cciobanu98.github.io/donation/donation-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-03T09:14:36.127118306Z"
+generated: "2022-06-03T12:50:34.901335366Z"
