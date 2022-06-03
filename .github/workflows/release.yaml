@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  donation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login to Docker HUB
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PAT }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta-donation
+        uses: docker/metadata-action@v3
+        with:
+          images: cciobanu98/donation
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          file: Dockerfile
+          context: .
+          push: true
+          tags: ${{ steps.meta-donation.outputs.tags }}
+          labels: ${{ steps.meta-donation.outputs.labels }}
+
+  release:
+    needs: [donation]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Publish helm charts
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          charts_dir: deployment/helm
+          linting: off
