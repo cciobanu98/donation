@@ -7,6 +7,8 @@ image:
 
 nameOverride: ""
 fullnameOverride: ""
+site: ""
+ingressClassName: ""
 
 service:
   type: ClusterIP

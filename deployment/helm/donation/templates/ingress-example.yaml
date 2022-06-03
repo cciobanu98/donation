@@ -7,8 +7,10 @@ metadata:
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  ingressClassName: {{ .Values.ingressClassName }}
   rules:
-  - http:
+  - host: {{ .Values.site }}
+    http:
       paths:
       - path: /
         pathType: Prefix
