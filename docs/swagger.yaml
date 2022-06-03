@@ -1,0 +1,102 @@
+basePath: /api
+definitions:
+  handler.CreateProjectInput:
+    properties:
+      title:
+        type: string
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server Petstore server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Project API
+  version: "1.0"
+paths:
+  /project:
+    get:
+      description: get all projects
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: get projects
+      tags:
+      - project
+    post:
+      consumes:
+      - application/json
+      description: create a new project
+      parameters:
+      - description: Project Info
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateProjectInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "500":
+          description: ""
+      summary: create a new project
+      tags:
+      - project
+  /project/{project_id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete project using id
+      parameters:
+      - description: Project ID
+        in: path
+        name: project_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: ""
+        "404":
+          description: ""
+      summary: delete project by Id
+      tags:
+      - project
+    get:
+      consumes:
+      - application/json
+      description: Get project using id
+      parameters:
+      - description: Project ID
+        in: path
+        name: project_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: ""
+        "404":
+          description: ""
+      summary: Get project by Id
+      tags:
+      - project
+swagger: "2.0"

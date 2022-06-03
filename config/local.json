@@ -1,0 +1,10 @@
+{
+    "DB": {
+        "Host": "localhost",
+        "Port": 123,
+        "Username": "username",
+        "Password": "password",
+        "DbURI": "test.db",
+        "Dialect": "sqlite3"
+    }
+}
